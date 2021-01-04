@@ -56,7 +56,7 @@ module.exports.datastores = {
   postgresDB: {
     adapter: 'sails-postgresql',
     url: 'postgresql://timothy:plati442@localhost:5432/food_db',
-    ssl: true
+    // ssl: true
   }
 
 

@@ -12,6 +12,11 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
+    username: {type: 'string', required: true},
+    email: {type: 'string', required: true},
+    password: {type: 'string', required: true},
+    updatedAt: false,
+
 
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
@@ -22,7 +27,15 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
+    // a one-way relationship between user and role
+    role: {
+      model: 'Role'
+    },
+    // a one-to-many relationship between user and orders
+    my_orders: {
+      collection: 'order',
+      via: 'owner'
+    }
   },
 
 };

@@ -12,6 +12,9 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
+    name: {type: 'string', required: true},
+    price: {type: 'number', required: true},
+    updatedAt: false,
 
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
@@ -23,6 +26,11 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
+    // a one-to-many relationship betwenn food and order
+    orders: {
+      collection: 'order',
+      via: 'ordered_by'
+    }
   },
 
 };

@@ -12,7 +12,8 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
+    status: {type: 'boolean', defaultsTo: false},
+    quantity: {type: 'number', defaultsTo: 1},
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -23,6 +24,14 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
+    // a one-to-many relationship between user and order
+    owner: {
+      model: 'user'
+    },
+    // a one-to-many relationship between food and order
+    ordered_by: {
+      model: 'food'
+    }
   },
 
 };
