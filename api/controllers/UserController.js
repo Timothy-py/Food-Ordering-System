@@ -7,7 +7,6 @@
 
  const bcrypt = require('bcryptjs');
  const jwt = require('jsonwebtoken');
- const tokenSecret = require('.../config/authConfig.js');
 
 
 module.exports = {
@@ -40,7 +39,8 @@ module.exports = {
         // check if the user supplied both email and password for login
         if (!data.email || !data.password) return res.badRequest('Email and password required');
 
-        User.findOne({ email: email })
+        User.findOne({ email: data.email })
+            .populate('role')
             .then((user) => {
                 // check if the user exists
                 if (!user) return res.status(400).send({message: "User Not Found."})
@@ -60,7 +60,7 @@ module.exports = {
                 }
 
                 // generates user token
-                var token = jwt.sign({id: user.id}, tokenSecret.secret, {
+                var token = jwt.sign({id: user.id}, "timothy-secrets", {
                     expiresIn: 86400 //24hours
                 })
 

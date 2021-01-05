@@ -14,7 +14,6 @@ module.exports = {
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
     name: {type: 'string', required: true},
     price: {type: 'number', required: true},
-    updatedAt: false,
 
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗

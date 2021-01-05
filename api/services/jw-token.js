@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const tokenSecret = require('.../config/authConfig.js');
 
 
 module.exports = {
@@ -8,7 +7,7 @@ module.exports = {
   verify(token, callback) {
     return jwt.verify(
       token, // The token to be verified
-      tokenSecret.secret, // Same token we used to sign
+      "timothy-secrets", // Same token we used to sign
       {}, 
       callback //Pass errors or decoded token to callback
     );

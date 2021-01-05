@@ -1,4 +1,4 @@
-const jwToken = require('../helpers/jw-token')
+const jwToken = require('../services/jw-token')
 
 module.exports = (req, res, next) => {
     let token;

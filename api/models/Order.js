@@ -14,6 +14,7 @@ module.exports = {
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
     status: {type: 'boolean', defaultsTo: false},
     quantity: {type: 'number', defaultsTo: 1},
+    time_ordered: {type: 'string', defaultsTo: Date().toLocaleString()},
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
