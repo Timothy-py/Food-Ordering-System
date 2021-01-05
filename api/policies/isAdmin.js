@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
     .then(user => {
         if(user[0].role.title === 'admin'){
             req.user = user[0];
-            req.user.token = req.token
+            req.user.token = req.headers['x-access-token']
             next()
             return;
         }else{

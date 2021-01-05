@@ -9,24 +9,43 @@
 
 module.exports = {
     
-    // viewOrders(req, res){
-    //     Order.find()
-    //         .populate('owner')
-    //         .populate('ordered_by')
-    // }
     viewAllOrders(req, res){
-        console.log(req.user)
-        console.log(req.token)
-        res.status(200).json({
-            message: "VIEW ALL ORDERS BY ADMIN",
-            // username: req.user.username
-        })
+        
+        
     },
     viewMyOrders(req, res){
         res.send("VIEW MY ORDERS BY SELF USER")
     },
-    createOrder(req, res){
-        res.send("CREATE ORDERS BY ALL USERS")
+
+    async createOrder(req, res){
+        const food = await Food.find({where: {id: req.param.food_id}}).limit('1')
+        console.log(food)
+        if(food.length == 0){
+            res.status(400).json({
+                message: "Food item does not exist"
+            })
+        }else{
+            var createdOrder = await Order.create({
+                status: req.param('name'),
+                quantity: req.param('quantity'),
+                ordered_by: req.param('food_id'),
+                owner: req.userId,
+            }).fetch();
+
+            if(createdOrder){
+                return res.status(201).json({
+                    message: "Order created successfully",
+                    payload: createdOrder
+                })
+            }else{
+                res.status(400).json({
+                    message: "Unable to create Order"
+                })
+            }
+        
+        }
+
+        
     },
     updateOrderStatus(req, res){
         res.send("UPDATE ORDER STATUS BY SELF USER")

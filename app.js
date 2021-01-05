@@ -49,7 +49,7 @@ try {
   return;
 }//-•
 
-require('dotenv').config()
+const cookieParser = require('cookie-parser')
 
 
 // Start server

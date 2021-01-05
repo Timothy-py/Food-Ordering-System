@@ -44,7 +44,6 @@ module.exports = {
 
             const log_user = await User.find({where: {email: data.email}}).limit(1)
             .populate('role')
-            console.log(log_user)
 
             if(log_user){
                 // compare user supplied password with the encrypted one in db

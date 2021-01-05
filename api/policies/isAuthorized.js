@@ -1,37 +1,17 @@
-// const jwToken = require('../services/jw-token')
-
-// const User = require("../models/User")
-
-// module.exports = (req, res, next) => {
-//     let token;
-  
-  
-//     if (req.headers && req.headers.token) {
-//       token = req.headers.token;
-//       if (token.length <= 0) return res.json(401, {err: 'Format is Authorization: Bearer [token]'});
-  
-//     } else if (req.param('token')) {
-//       token = req.param('token');
-//       // We delete the token from param to not mess with blueprints
-//       delete req.query.token;
-//     } else {
-//       return res.json(401, {err: 'No Authorization header was found'});
-//     }
-  
-//     jwToken.verify(token, function (err, token) {
-//       if (err) return res.json(401, {err: 'Invalid Token!'});
-//       req.token = token; // This is the decrypted token or the payload you provided
-//       next();
-//     });
-//   };
+const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
-  let token = req.cookies.auth
+  let token = req.headers["x-access-token"];
 
-  User.findByToken(token, (err, user)=>{
-    if(err) throw err
-    if(!user) return res.json({error: true})
-    req.token = token
-    next()
-  })
+    if(!token){
+        return res.status(403).send({message: "No token provided!"});
+    }
+
+    jwt.verify(token, "timothy-secrets", (err, decoded) => {
+        if(err) {
+            return res.status(401).send({message: "Unauthorized!"});
+        }
+        req.userId = decoded.id;
+        next();
+    });
 }
