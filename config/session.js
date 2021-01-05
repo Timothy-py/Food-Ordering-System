@@ -9,7 +9,7 @@
  * https://sailsjs.com/config/session
  */
 
-// module.exports.session = {
+module.exports.session = {
 
   /***************************************************************************
   *                                                                          *
@@ -18,8 +18,7 @@
   * of your users, forcing them to log in again.                             *
   *                                                                          *
   ***************************************************************************/
- module.exports.session = { secret: 'extremely-secure-keyboard-cat' }
-
+  secret: 'df288a7af95de1a7287353e8885ecc8b',
 
 
   /***************************************************************************
@@ -37,4 +36,4 @@
   //   return !!req.path.match(req._sails.LOOKS_LIKE_ASSET_RX);
   // },
 
-// };
+};
