@@ -50,14 +50,11 @@ module.exports.datastores = {
     ***************************************************************************/
     // adapter: 'sails-mysql',
     // url: 'mysql://user:password@host:port/database',
-
-  },
-
-  postgresDB: {
     adapter: 'sails-postgresql',
     url: 'postgresql://timothy:plati442@localhost:5432/food_db',
     ssl: true
-  }
+  },
+  
   // productionDB: {
   //   adapter: 'sails-postgresql',
   //   url: process.env.postgresHG_URL,

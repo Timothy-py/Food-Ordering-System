@@ -74,7 +74,7 @@ module.exports = {
     //  url: '',
     //   ssl: true,
     adapter: 'sails-postgresql',
-    url: process.env.postgresHQ_URL,
+    url: process.env.DATABASE_URL,
     ssl: true
     },
 
@@ -254,10 +254,8 @@ module.exports = {
     * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
     *                                                                          *
     ***************************************************************************/
-    // onlyAllowOrigins: [
-    //   'https://example.com',
-    //   'https://staging.example.com',
-    // ],
+   onlyAllowOrigins: ["https://orderfoodapi.herokuapp.com"],
+
 
 
     /***************************************************************************
@@ -329,7 +327,7 @@ module.exports = {
     * (https://sailsjs.com/config/http)                                        *
     *                                                                          *
     ***************************************************************************/
-    // trustProxy: true,
+    trustProxy: true,
 
   },
 
