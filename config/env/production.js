@@ -73,7 +73,7 @@ module.exports = {
     //  adapter: 'sails-postgresql',
     //  url: '',
     //   ssl: true,
-    adapter: 'sails-postgresql',
+    adapter: require('sails-postgresql'),
     url: process.env.DATABASE_URL,
     ssl: true
     },
