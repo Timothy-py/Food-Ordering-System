@@ -73,7 +73,9 @@ module.exports = {
     //  adapter: 'sails-postgresql',
     //  url: '',
     //   ssl: true,
-      productionDB
+    adapter: 'sails-postgresql',
+    url: process.env.postgresHQ_URL,
+    ssl: true
     },
 
   },
