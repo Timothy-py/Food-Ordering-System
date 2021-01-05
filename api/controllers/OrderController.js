@@ -10,8 +10,24 @@
 module.exports = {
     
     viewAllOrders(req, res){
-        
-        
+        Order.find()
+        .then(orders => {
+            
+            if(orders.length > 0){
+                return res.status(200).json({
+                    message: `${orders.length} Orders Found`,
+                    payload: orders
+                })
+            }else{
+                res.status(200).send("No Product Found")
+            }
+        })
+        .catch(err => {
+            res.status(400).json({
+                message: "Unable to search for product",
+                Error: err
+            })
+        })
     },
     viewMyOrders(req, res){
         res.send("VIEW MY ORDERS BY SELF USER")
