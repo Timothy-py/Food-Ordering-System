@@ -70,11 +70,12 @@ module.exports = {
       * https://sailsjs.com/config/datastores                                     *
       *                                                                           *
       ****************************************************************************/
-     adapter: 'sails-postgresql',
-     url: '',
-      ssl: true,
+    //  adapter: 'sails-postgresql',
+    //  url: '',
+    //   ssl: true,
 
-    },
+    // },
+    productionDB
 
   },
 
