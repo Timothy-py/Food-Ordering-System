@@ -11,6 +11,10 @@
 module.exports.routes = {
 
     'POST /signup' : 'UserController.signUp',
-    'POST /login' : 'UserController.login'
-
+    'POST /login' : 'UserController.login',
+    'GET /logout' : 'UserController.logout',
+    'GET /all-orders' : 'OrderController.viewAllOrders',
+    'GET /my-orders' : 'OrderController.viewMyOrders',
+    'POST /order' : 'OrderController.createOrder',
+    'PATCH /update' : 'OrderController.updateOrderStatus'
 };

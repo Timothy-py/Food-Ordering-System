@@ -20,7 +20,9 @@ module.exports.policies = {
  'UserController': { // Name of your controller
    'signUp': true, // We dont need authorization here, allowing public access
    'login': true
- }
-  // '*': true,
+ },
+ 'OrderController': {
+   'viewAllOrders': ['isAdmin'],
+ } 
 
 };
