@@ -82,18 +82,6 @@ module.exports = {
                     message: "User not found"
                 })
             }
-    },
-
-    // logout
-    logout(req, res){
-        req.user.deleteToken(req.token, (err, user)=>{
-            if(err){
-                res.status(400).json({error: err})
-            }
-            res.status(200).json({
-                message: "Logged out successfully"
-            })
-        })
     }
 };
 
