@@ -15,7 +15,7 @@
 
 module.exports.models = {
 
-  datastore: 'postgresDB',
+  // datastore: 'postgresDB',
 
   /***************************************************************************
   *                                                                          *
